@@ -1,0 +1,12 @@
+{% extends "base.html" %}
+{% block content %}
+<div class="card-body">
+    <h5>Añadir persona</h5>
+    <form method="post">
+        {% csrf_token %}
+        {{form.as_p}}
+        <a type="button" class="btn btn-danger" href="{%url 'listaPersonas' %}">Cancelar</a>
+        <button type="submit" class="btn btn-success">Añadir</button>
+    </form>
+</div>
+{% endblock %}
