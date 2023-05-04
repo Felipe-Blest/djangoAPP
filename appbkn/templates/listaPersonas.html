@@ -17,13 +17,13 @@
                 <td>{{ persona.rut }}</td>
                 <td>{{ persona.nombre }}</td>
                 <td>{{ persona.apellido }}</td>
-                <td><a type="button" class="btn btn-warning" href="/persona-update/{{ persona.id }}">Update</a>
-                    <a type="button" class="btn btn-danger" href="/persona-delete/{{ persona.id }}">Delete</a>
+                <td><a type="button" class="btn btn-warning" href="/persona-update/{{ persona.rut }}">Update</a>
+                    <a type="button" class="btn btn-danger" href="/persona-delete/{{ persona.rut }}">Delete</a>
                 </td>
             </tr>
             {% endfor %}
         </tbody>
     </table>
-    <a type="button" class="btn btn-success" href="{%url 'persona-create' %}">Create</a>
+    <a type="button" class="btn btn-success" href="{%url 'crearPersona' %}">Añadir</a>
 </div>
 {% endblock %}
