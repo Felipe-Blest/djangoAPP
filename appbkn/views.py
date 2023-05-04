@@ -23,7 +23,7 @@ def CrearPersona(request):
                 pass  
     else:  
         form = PersonaForm()  
-    return render(request,'persona-create.html',{'form':form})  
+    return render(request,'crearPersona.html',{'form':form})  
 
 def ActualizarPersona(request, id):  
     persona = persona.objects.get(id=id)
@@ -37,7 +37,7 @@ def ActualizarPersona(request, id):
                 return redirect('/listaPersonas')  
             except Exception as e: 
                 pass    
-    return render(request,'persona-update.html',{'form':form})  
+    return render(request,'modifPersona.html',{'form':form})  
 
 def EliminarPersona(request, id):
     persona = persona.objects.get(id=id)
