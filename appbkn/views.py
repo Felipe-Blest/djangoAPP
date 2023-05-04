@@ -1,5 +1,5 @@
 from django.shortcuts import render, redirect
-from .models import persona
+from .models import Persona
 from .forms import PersonaForm
 # Create your views here.
 
@@ -8,7 +8,7 @@ from .forms import PersonaForm
 
 # Create your views here.
 def PersonaList(request):  
-    Personas = persona.objects.all()  
+    Personas = Persona.objects.all()  
     return render(request,"listaPersonas.html",{'personas':Personas})  
 
 def CrearPersona(request):  
@@ -26,10 +26,10 @@ def CrearPersona(request):
     return render(request,'crearPersona.html',{'form':form})  
 
 def ActualizarPersona(request, id):  
-    persona = persona.objects.get(id=id)
-    form = PersonaForm(initial={'rut': persona.rut, 'nombre': persona.nombre, 'apellido': persona.apellido})
+    persona = Persona.objects.get(id=id)
+    form = PersonaForm(initial={'rut': Persona.rut, 'nombre': Persona.nombre, 'apellido': Persona.apellido})
     if request.method == "POST":  
-        form = PersonaForm(request.POST, instance=persona)  
+        form = PersonaForm(request.POST, instance=Persona)  
         if form.is_valid():  
             try:  
                 form.save() 
@@ -40,9 +40,9 @@ def ActualizarPersona(request, id):
     return render(request,'modifPersona.html',{'form':form})  
 
 def EliminarPersona(request, id):
-    persona = persona.objects.get(id=id)
+    persona = Persona.objects.get(id=id)
     try:
-        persona.delete()
+        Persona.delete()
     except:
         pass
     return redirect('listaPersonas')
