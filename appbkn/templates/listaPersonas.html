@@ -1,0 +1,29 @@
+
+{% extends "base.html" %}
+{% block content %}
+<div class="card-body">
+    <h4>Lista de Personas</h4>
+    <table class="table">
+        <thead>
+            <tr>
+                <th scope="col">Rut</th>
+                <th scope="col">Nombre</th>
+                <th scope="col">Apellido</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for persona in personas %}
+            <tr>
+                <td>{{ persona.rut }}</td>
+                <td>{{ persona.nombre }}</td>
+                <td>{{ persona.apellido }}</td>
+                <td><a type="button" class="btn btn-warning" href="/persona-update/{{ persona.id }}">Update</a>
+                    <a type="button" class="btn btn-danger" href="/persona-delete/{{ persona.id }}">Delete</a>
+                </td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+    <a type="button" class="btn btn-success" href="{%url 'persona-create' %}">Create</a>
+</div>
+{% endblock %}
