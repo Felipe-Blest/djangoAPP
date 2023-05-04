@@ -12,13 +12,13 @@
             </tr>
         </thead>
         <tbody>
-            {% for persona in personas %}
+            {% for Persona in personas %}
             <tr>
-                <td>{{ persona.rut }}</td>
-                <td>{{ persona.nombre }}</td>
-                <td>{{ persona.apellido }}</td>
-                <td><a type="button" class="btn btn-warning" href="/persona-update/{{ persona.rut }}">Update</a>
-                    <a type="button" class="btn btn-danger" href="/persona-delete/{{ persona.rut }}">Delete</a>
+                <td>{{ Persona.rut }}</td>
+                <td>{{ Persona.nombre }}</td>
+                <td>{{ Persona.apellido }}</td>
+                <td><a type="button" class="btn btn-warning" href="/persona-modif/{{ Persona.rut }}">Modificar</a>
+                    <a type="button" class="btn btn-danger" href="/persona-borrar/{{ Persona.rut }}">Eliminar</a>
                 </td>
             </tr>
             {% endfor %}
